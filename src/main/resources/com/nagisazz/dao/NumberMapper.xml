@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nagisazz.dao.NumberMapper">
+
+    <sql id="tablename">number</sql>
+
+    <sql id="Base_Column_List">
+        id,number
+    </sql>
+
+    <select id="getNumber" resultType="integer">
+        select
+        `number`
+        from
+        <include refid="tablename"/>
+        where
+        id = #{id}
+    </select>
+
+    <update id="update" >
+        update
+        <include refid="tablename"/>
+        set number = number - 1
+        where
+        id = #{id}
+    </update>
+</mapper>
